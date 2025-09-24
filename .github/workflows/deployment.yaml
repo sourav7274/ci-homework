@@ -1,0 +1,25 @@
+name: Unga Bunga
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkig out code
+        uses: actions/Checkout@v5
+      - name: configure systems
+        uses: actions/setup-node@v3
+        with:
+           node-version: 23
+      - name: Install dependencies
+        uses: npm install
+
+      - name: testing
+        run: npm test
+      - name: final
+        run: npm run
